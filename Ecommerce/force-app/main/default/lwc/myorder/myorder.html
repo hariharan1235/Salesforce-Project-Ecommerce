@@ -1,0 +1,32 @@
+<template>
+    <h1>My Order</h1>
+    <table class="slds-max-medium-size_1-of-1">
+        <thead>
+            <tr>
+                <th>Order No</th>
+                <th>Total Amount</th>
+                <th>Order status</th>
+                <th>Order details</th>
+            </tr>
+        </thead>
+        <tbody>
+            <template for:each={order_list} for:item="order">
+                <tr key={order.Id}>
+                    <td># {order.Name}</td>
+                    <td>$ {order.TotalAmount__c}.00</td>
+                    <td><span class={order.Status__c}>{order.Status__c}</span></td>
+                    <td>
+                        <lightning-button variant="brand" onclick={GoOrderViewPage} data-id={order.Id} label="View More"></lightning-button>
+                    </td>
+                </tr>
+            </template>
+            
+        </tbody>
+    </table>
+
+    <template if:true={Isloading}>
+        <div class="loading">
+            <lightning-spinner variant="brand" alternative-text="Loading" size="medium"></lightning-spinner>
+        </div>
+    </template>
+</template>

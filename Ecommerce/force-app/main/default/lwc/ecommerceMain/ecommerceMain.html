@@ -1,0 +1,47 @@
+<template>
+    <div class="category_carousel">
+        <lightning-layout size="12" class="slds-p-around_medium">
+            <lightning-layout-item size="3" class="slds-p-around_medium">
+                <div class="category">
+                    <div class="category_head slds-p-around_medium">
+                        <lightning-icon class="slds-m-right_large list_con" icon-name="utility:list" alternative-text="list" title="list" size='small'></lightning-icon> 
+                        <h1>All Categories</h1>
+                    </div>
+                    <!-- Category List  -->
+                    <div class="category_list" >
+                        <ul>
+                            <li data-category="Table" onclick={GoCategoryPage}><img src={TableLogo}> Table</li>
+                            <li data-category="Chair" onclick={GoCategoryPage}><img src={ChairLogo}> Chair</li>
+                            <li data-category="Sofa" onclick={GoCategoryPage}><img src={SofaLogo}>Sofa</li>
+                            <li data-category="Sofa" onclick={GoCategoryPage}><img src={BedLogo}>Bed</li>
+                            <li data-category="TV" onclick={GoCategoryPage}><img src={TV_unitLogo}>TV unit</li>
+                            <li data-category="shelves" onclick={GoCategoryPage}><img src={Book_shelvesLogo}>Book shelves</li>
+                            <li data-category="Shoerack" onclick={GoCategoryPage}><img src={ShoerackLogo}>Shoerack</li>
+                            <li data-category="Cabinet" onclick={GoCategoryPage}><img src={CabinetLogo}>Cabinet </li>
+                            <li data-category="Dresser" onclick={GoCategoryPage}><img src={DresserLogo}>Dresser</li>
+                            <li data-category="Bench" onclick={GoCategoryPage}><img src={BenchLogo}>Bench</li>
+                        </ul>
+                    </div>
+                </div>
+            </lightning-layout-item>
+            <lightning-layout-item size="9" class="slds-p-around_medium">
+                <c-carousel></c-carousel>
+            </lightning-layout-item>
+        </lightning-layout>
+    </div>
+    <!-- Iterate every products based on category  -->
+    <template for:each={category_list} for:item="category">
+        <div class="products_list" key={category.Category__c}>
+            <h1>{category.Category__c}</h1>
+            <p>There are many {category.Category__c} available</p>
+            <c-product-items category={category.Category__c}></c-product-items>
+        </div>
+    </template>
+
+
+
+
+
+
+    
+</template>

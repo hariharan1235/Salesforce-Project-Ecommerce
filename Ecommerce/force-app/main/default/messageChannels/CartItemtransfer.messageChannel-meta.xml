@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningMessageChannel xmlns="http://soap.sforce.com/2006/04/metadata">
+
+    <isExposed>true</isExposed>
+    <masterLabel>CartItemtransfer</masterLabel>
+    <description>To transfer the cart item</description>
+
+    <lightningMessageFields>
+        <fieldName>productId</fieldName>
+        <description>Id of the product..</description>
+    </lightningMessageFields>
+
+    <lightningMessageFields>
+        <fieldName>Quantity</fieldName>
+        <description>Quantity of the product..</description>
+    </lightningMessageFields>
+
+
+</LightningMessageChannel>

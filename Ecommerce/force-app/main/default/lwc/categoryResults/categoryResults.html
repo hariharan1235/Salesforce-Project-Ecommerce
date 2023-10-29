@@ -1,0 +1,64 @@
+<!-- sldsValidatorIgnore -->
+<!-- sldsValidatorIgnore -->
+<template>
+    <template if:true={IsProductEmpty}>
+        <div class="No_result_div">
+            <h1>Oops! No product Available in this category  &#128543;</h1>
+        </div>
+    </template>
+    <template if:false={IsProductEmpty}>
+        <h1 class="category_head">{category} Products</h1>
+    </template>
+    <div class="search_results">
+        <template for:each={product_list} for:item="product">
+
+            <div class="product_card" key={product.ProductId}>
+                <div class="product_img">
+                    <lightning-formatted-rich-text data-id={product.ProductId} onclick={GoProductView} class="Product_img" value={product.ProductImg}></lightning-formatted-rich-text>
+                </div>
+                <div class="product_details">
+                  <h1>{product.ProductName}</h1>
+                  <h1>$ {product.ProductPrice}.00</h1>
+                  <template if:true={product.IscartAvailable}>
+                    <div class="quantity">
+                        <div
+                        class="quantity_box"
+                        onclick={DecreseCartQuantity}
+                        data-id={product.ProductId}
+                        data-quantity={product.CartQuantity}
+                      >
+                        -
+                      </div>
+                      <div class="quantity_box">{product.CartQuantity}</div>
+                      <div
+                        class="quantity_box"
+                        onclick={IncreseCartQuantity}
+                        data-id={product.ProductId}
+                        data-quantity={product.CartQuantity}
+                      >
+                        +
+                      </div>
+                    </div>
+                 </template>
+
+                 <template if:false={product.IscartAvailable}>
+                    <button class="cart_btn" data-id={product.ProductId} onclick={AddTocart}>Add to Cart</button>
+                  </template>
+            
+                    
+                </div>
+              </div>
+
+        </template>
+
+      </div>
+
+
+
+      <template if:true={Isloading}>
+        <div class="loading">
+            <lightning-spinner variant="brand" alternative-text="Loading" size="medium"></lightning-spinner>
+        </div>
+    </template>
+    
+</template>

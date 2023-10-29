@@ -1,0 +1,76 @@
+<!-- sldsValidatorIgnore -->
+<!-- sldsValidatorIgnore -->
+<template>
+   
+    <template if:true={isloading}>
+        <div class="loading">
+            <lightning-spinner alternative-text="Loading" variant="brand" size="medium"></lightning-spinner>
+        </div>
+    </template>
+
+
+    <div class="cart_header">
+        <h1>My cart</h1>
+        <p>You are eligible for free shipping!</p>
+      </div>
+
+      <template if:true={iscartEmpty}>
+        <div class="Empty_cart">
+            <h1>Your shopping cart is Currenty Empty!!!</h1>
+        </div>
+      </template>
+  
+      <div class="cart_items">
+        <table>
+            <tbody>
+            <template for:each={cartList} for:item="cart">
+                
+                <tr key={cart.Id}>
+                    <td>
+                      <div class="product_cart_img">
+                        <lightning-formatted-rich-text value={cart.myCustom_product__r.Product_Thumbnail__c}></lightning-formatted-rich-text>
+                      </div>
+                    </td>
+                    <td>{cart.myCustom_product__r.Name}</td>
+                    <td>$ {cart.myCustom_product__r.Price__c}.00</td>
+                    <td>
+                      <div class="quantity">
+                        <div class="quantity_box" onclick={DecreseCartQuantity} data-id={cart.myCustom_product__c} data-quantity={cart.Quantity__c}>-</div>
+                        <div class="quantity_box">{cart.Quantity__c}</div>
+                        <div class="quantity_box" onclick={IncreseCartQuantity} data-id={cart.myCustom_product__c} data-quantity={cart.Quantity__c}>+</div>
+                      </div>
+                    </td>
+                    <td>$ {cart.Total__c}.00</td>
+                    <td onclick={RemoveCart} data-id={cart.Id}>&#x2715;</td>
+                  </tr>
+
+            </template>
+        </tbody>
+  
+        </table>
+        <button onclick={GoHomepage}>Continue shopping</button>
+      </div>
+  
+      <div class="checkout">
+        <div class="instruction_box">
+          <h1>Special instructions for seller</h1>
+          <textarea></textarea>
+        </div>
+        <div class="payment_box">
+          <h1>Cart Total</h1>
+          <table>
+            <tbody>
+            <tr>
+              <td>Subtotal</td>
+              <td>$ {TotalCost}.00</td>
+            </tr>
+            <tr>
+              <td>Total</td>
+              <td>$ {TotalCost}.00</td>
+            </tr>
+        </tbody>
+          </table>
+          <button onclick={ProceedCheckOut}>Proceed to Checkout</button>
+        </div>
+      </div>
+</template>

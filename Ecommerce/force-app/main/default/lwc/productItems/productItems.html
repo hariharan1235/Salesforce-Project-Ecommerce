@@ -1,0 +1,136 @@
+<!-- sldsValidatorIgnore -->
+<!-- sldsValidatorIgnore -->
+<template>
+
+    <template if:true={Isloading}>
+        <div class="loading">
+            <lightning-spinner variant="brand" alternative-text="Loading" size="medium"></lightning-spinner>
+        </div>
+    </template>
+    <div class="componentProduct">
+        <div class="main">
+          <div class="card_container">
+            <template for:each={product_list} for:item="product">
+                <div class="card" key={product.ProductId}>
+                    <div class="p_image" >
+                      <lightning-formatted-rich-text data-id={product.ProductId} onclick={GoProductView} class="Product_img" value={product.ProductImg}></lightning-formatted-rich-text>
+                      <!-- <img src={tempImg} /> -->
+                    </div>
+                    <div class="p_detail">
+                      <span class="p_name" data-id={product.ProductId} onclick={GoProductView}>{product.ProductName}</span>
+                      <span class="p_price">&#36; {product.ProductPrice}.00</span>
+                      <template if:true={product.IscartAvailable}>
+                         <div class="quantity">
+                            <div class="quantity_box" onclick={DecreseCartQuantity} data-id={product.ProductId} data-quantity={product.CartQuantity}>-</div>
+                            <div class="quantity_box">{product.CartQuantity}</div>
+                            <div class="quantity_box" onclick={IncreseCartQuantity} data-id={product.ProductId} data-quantity={product.CartQuantity}>+</div>
+                          </div>
+                      </template>
+                      <template if:false={product.IscartAvailable}>
+                        <button class="cart_btn" data-id={product.ProductId} onclick={AddTocart}>Add to Cart</button>
+                      </template>
+                      
+                    </div>
+                  </div>
+
+            </template>
+           
+            <!-- <div class="card">
+              <div class="p_image">
+                <img src={tempImg1} />
+                <div class="p_hover_icons">
+                    <lightning-icon class="slds-m-horizontal_medium product_inside_icons"  icon-name="utility:preview" alternative-text="view" title="view" size='small'></lightning-icon>
+                    <lightning-icon class="slds-m-horizontal_medium product_inside_icons"  icon-name="utility:cart" alternative-text="cart" title="Add cart" size='small'></lightning-icon>
+                </div>
+              </div>
+              <div class="p_detail">
+                <span class="p_name">Lenavo laptop</span>
+                <span class="p_price">$ 50.25</span>
+              </div>
+            </div>
+            <div class="card">
+              <div class="p_image">
+                <img src={tempImg2} />
+                <div class="p_hover_icons">
+                    <lightning-icon class="slds-m-horizontal_medium product_inside_icons"  icon-name="utility:preview" alternative-text="view" title="view" size='small'></lightning-icon>
+                    <lightning-icon class="slds-m-horizontal_medium product_inside_icons"  icon-name="utility:cart" alternative-text="cart" title="Add cart" size='small'></lightning-icon>
+                </div>
+              </div>
+              <div class="p_detail">
+                <span class="p_name">Lenavo laptop</span>
+                <span class="p_price">$ 50.25</span>
+              </div>
+            </div>
+            <div class="card">
+              <div class="p_image">
+                <img src={tempImg} />
+                <div class="p_hover_icons">
+                    <lightning-icon class="slds-m-horizontal_medium product_inside_icons"  icon-name="utility:preview" alternative-text="view" title="view" size='small'></lightning-icon>
+                    <lightning-icon class="slds-m-horizontal_medium product_inside_icons"  icon-name="utility:cart" alternative-text="cart" title="Add cart" size='small'></lightning-icon>
+                </div>
+              </div>
+              <div class="p_detail">
+                <span class="p_name">Lenavo laptop</span>
+                <span class="p_price">$ 50.25</span>
+              </div>
+            </div>
+            <div class="card">
+              <div class="p_image">
+                <img src={tempImg} />
+                <div class="p_hover_icons">
+                    <lightning-icon class="slds-m-horizontal_medium product_inside_icons"  icon-name="utility:preview" alternative-text="view" title="view" size='small'></lightning-icon>
+                    <lightning-icon class="slds-m-horizontal_medium product_inside_icons"  icon-name="utility:cart" alternative-text="cart" title="Add cart" size='small'></lightning-icon>
+                </div>
+              </div>
+              <div class="p_detail">
+                <span class="p_name">Lenavo laptop</span>
+                <span class="p_price">$ 50.25</span>
+              </div>
+            </div>
+            <div class="card">
+              <div class="p_image">
+                <img src={tempImg} />
+                <div class="p_hover_icons">
+                    <lightning-icon class="slds-m-horizontal_medium product_inside_icons"  icon-name="utility:preview" alternative-text="view" title="view" size='small'></lightning-icon>
+                    <lightning-icon class="slds-m-horizontal_medium product_inside_icons"  icon-name="utility:cart" alternative-text="cart" title="Add cart" size='small'></lightning-icon>
+                </div>
+              </div>
+              <div class="p_detail">
+                <span class="p_name">Lenavo laptop</span>
+                <span class="p_price">$ 50.25</span>
+              </div>
+            </div>
+            <div class="card">
+              <div class="p_image">
+                <img src={tempImg} />
+                <div class="p_hover_icons">
+                    <lightning-icon class="slds-m-horizontal_medium product_inside_icons"  icon-name="utility:preview" alternative-text="view" title="view" size='small'></lightning-icon>
+                    <lightning-icon class="slds-m-horizontal_medium product_inside_icons"  icon-name="utility:cart" alternative-text="cart" title="Add cart" size='small'></lightning-icon>
+                </div>
+              </div>
+              <div class="p_detail">
+                <span class="p_name">Lenavo laptop</span>
+                <span class="p_price">$ 50.25</span>
+              </div>
+            </div>
+            <div class="card">
+              <div class="p_image">
+                <img src={tempImg} />
+                <div class="p_hover_icons">
+                    <lightning-icon class="slds-m-horizontal_medium product_inside_icons"  icon-name="utility:preview" alternative-text="view" title="view" size='small'></lightning-icon>
+                    <lightning-icon class="slds-m-horizontal_medium product_inside_icons"  icon-name="utility:cart" alternative-text="cart" title="Add cart" size='small'></lightning-icon>
+                </div>
+              </div>
+              <div class="p_detail">
+                <span class="p_name">Lenavo laptop</span>
+                <span class="p_price">$ 50.25</span>
+              </div>
+            </div> -->
+          </div>
+          <div class="arrow_controller">
+            <svg id="arrow_left" onclick={Previous} class="prev" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg>
+            <svg id="arrow_right" onclick={Next} class="next" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/></svg>
+          </div>
+        </div>
+      </div>
+</template>

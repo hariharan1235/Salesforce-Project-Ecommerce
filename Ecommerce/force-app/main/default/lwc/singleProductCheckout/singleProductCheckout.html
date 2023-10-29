@@ -1,0 +1,168 @@
+<!-- sldsValidatorIgnore -->
+<!-- sldsValidatorIgnore -->
+<template>
+    <div class="checkout_container">
+        <div class="checkout_details">
+          <h1>Contact</h1>
+          <div class="input_box">
+            <input type="number" onchange={HandleMobileNumber} value={mobile_number} maxlength="10" required="required" />
+            <span>Mobile Number</span>
+          </div>
+          <h1>Payment</h1>
+          <p>All transactions are secure and encrypted.</p>
+          <!--Payment Card start-->
+          <div class="card">
+            <div class="card_head">
+              <h1>Credit card</h1>
+              <lightning-icon class="custom40" icon-name="custom:custom40" alternative-text="card" title="card" size='small'></lightning-icon>
+            </div>
+            <div class="card_form_container">
+              <div class="Single_col">
+                <div class="input_box">
+                  <input onchange={HandleCardNumber} value={card_num} type="number" required="required" maxlength="16" />
+                  <span>Card Number</span>
+                </div>
+              </div>
+              <div class="Double_col">
+                <div class="col_1">
+                  <div class="input_box">
+                    <input oninput={HandleCardExpDate} type="text" maxlength="5" value={card_exp} required="required" />
+                    <span>Expiration date (MM/YY)</span>
+                  </div>
+                </div>
+                <div class="col_2">
+                  <div class="input_box">
+                    <input type="number" onchange={HandleCardCVV} value={card_cvv} required="required" maxlength="3" />
+                    <span>Security Code (CVV)</span>
+                  </div>
+                </div>
+              </div>
+              <div class="Single_col">
+                <div class="input_box">
+                  <input type="text" onchange={HandleCardName} value={card_name} required="required" />
+                  <span>Name on card</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--Payment Card ENd-->
+  
+          <!--billing_address form start-->
+  
+          <div class="billing_address_form_container">
+            <h1>Billing address</h1>
+            <div class="Single_col">
+              <div class="input_box">
+                <input type="text"  onchange={HandleCountry}  value={billcountry} required="required" />
+                <span>Country</span>
+              </div>
+            </div>
+            <div class="Double_col">
+              <div class="col_1">
+                <div class="input_box">
+                  <input type="text" onchange={HandleFirstname} value={firstname} required="required" />
+                  <span>First Name</span>
+                </div>
+              </div>
+              <div class="col_2">
+                <div class="input_box">
+                  <input type="text" onchange={HandleLastName} value={lastname} required="required" />
+                  <span>Last Name</span>
+                </div>
+              </div>
+            </div>
+            <div class="Single_col">
+              <div class="input_box">
+                <input type="text" onchange={HandleAddress} value={billstreet} required="required" />
+                <span>Address</span>
+              </div>
+            </div>
+            <div class="Double_col">
+              <div class="col_1">
+                <div class="input_box">
+                  <input type="number" onchange={HandlePostalCode} value={billzip} required="required" />
+                  <span>Postal Code</span>
+                </div>
+              </div>
+              <div class="col_2">
+                <div class="input_box">
+                  <input type="text" onchange={HandleCity} value={billcity} required="required" />
+                  <span>City</span>
+                </div>
+              </div>
+            </div>
+            <button class="payBtn" onclick={MakePayment}>Pay Now</button>
+          </div>
+          <!--billing_address form End-->
+        </div>
+        <!--End of checkout_details DIv-->
+        <div class="order_items">
+          <h1>Products List</h1>
+          <!-- Product List -->
+          <div class="product_item_list">
+            <table>
+
+                <tr>
+                    <td><lightning-formatted-rich-text value={product_logo}></lightning-formatted-rich-text> <span class="quantity">{product_quantity}</span></td>
+                    <td>{product_name}</td>
+                    <td>$ {TotalCost}.00</td>
+                  </tr>
+
+              
+            
+            </table>
+          </div>
+          <!-- Product List -->
+          <div class="Total_div">
+            <table>
+              <tr>
+                <td>Subtotal</td>
+                <td>$ {TotalCost}.00</td>
+              </tr>
+              <tr>
+                <td>Total</td>
+                <td>$ {TotalCost}.00</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+      <!--End of checkout_container DIv-->
+
+
+
+
+
+
+
+
+    <!-- Payment status dialogue box code -->
+
+    <div class="payment_status">  
+        <template if:true={payment_success}>
+            <lightning-icon icon-name='utility:success' alternative-text='success' variant='success' size='large' title='success'></lightning-icon>
+            <h1>Payment Success !</h1>
+            <p>We have received payment amount of</p>
+            <h1>$ {TotalCost}.00</h1>
+            <button onclick={ClodePaymentStatusBox}>Done</button>
+        </template>
+        <template if:false={payment_success}>
+            <lightning-icon icon-name='utility:close' alternative-text='close' variant='error' size='large' title='close'></lightning-icon>
+            <h1>Payment Failed !</h1>
+            <p>Reasion: {payment_failed_reason}</p>
+            <button class="Failed_btn" onclick={ClodePaymentStatusBox}>Try Again</button>
+        </template>
+    </div>
+
+
+    <template if:true={isloading}>
+        <div class="loading">
+                <div class="loder"><lightning-spinner alternative-text="Loading" variant="brand" size="medium"></lightning-spinner>
+                </div>
+                <h1>Processing...</h1>
+                
+                
+        </div>
+    </template>
+    
+</template>

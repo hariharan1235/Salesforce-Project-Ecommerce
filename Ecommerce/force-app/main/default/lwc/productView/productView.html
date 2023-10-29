@@ -1,0 +1,32 @@
+<!-- sldsValidatorIgnore -->
+<!-- sldsValidatorIgnore -->
+<template>
+     <div class="product">
+        <div class="product_images_controll">
+          <div class="product_image">
+            <lightning-formatted-rich-text value={product_current_view_image}></lightning-formatted-rich-text>
+            <!-- <img src={product_imageA} /> -->
+          </div>
+          <div class="product_images_list">
+            <div class="img_container selected_img"><lightning-formatted-rich-text value={product_imageA}></lightning-formatted-rich-text></div>
+            <div class="img_container"><lightning-formatted-rich-text value={product_imageB}></lightning-formatted-rich-text></div>
+            <div class="img_container"><lightning-formatted-rich-text value={product_imageC}></lightning-formatted-rich-text></div>
+            <div class="img_container"> <lightning-formatted-rich-text  value={product_imageD}></lightning-formatted-rich-text></div>
+          </div>
+        </div>
+        <div class="product_details">
+          <h1 class="product_name">{product_name}</h1>
+          <h1 class="product_price">$ {product_price}.00</h1>
+          <p class="product_description">{product_description}</p>
+          <div class="cart_buy_section">
+            <div class="quantity_control">
+              <button onclick={LessCartItem}>-</button>
+              <button class="cart_quantity_area">{cart_quantity}</button>
+              <button onclick={IncreseCartItem}>+</button>
+            </div>
+            <button class="cart_btn" onclick={AddCartItem}>{cartBtnName}</button>
+            <button class="buy_btn" onclick={GoCheckOutPage}>Buy it now</button>
+          </div>
+        </div>
+      </div>
+</template>

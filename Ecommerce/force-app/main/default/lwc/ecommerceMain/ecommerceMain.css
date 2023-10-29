@@ -1,0 +1,88 @@
+.category
+{
+    height: 90vh;
+    background-color: #F21E3B;
+}
+.category_head
+{
+    background-color: #F2F6F7;
+    display: flex;
+    align-items: center;
+    height: 10%;
+}
+.category_head h1
+{
+    font-weight: bolder;
+    font-size: large;
+}
+
+.category_head .list_con
+{
+    --sds-c-icon-color-foreground-default: black;
+}
+.category_list
+{
+    background-color: #ffffff;
+    border:1px solid #E5E7E9;
+    height: 90%;
+}
+.category_list ul
+{
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+   justify-content: space-around;
+    
+}
+.category_list ul li
+{
+    /* padding-block: 6px; */
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #E5E7E9;
+    padding-left: 16px;
+    flex-grow: 1;
+    flex-basis: 0;
+    color: black;
+    cursor: pointer;
+    font-weight: bold;
+}
+.category_list ul li:last-child
+{
+    border-bottom: none;
+}
+
+.category_list ul li:hover
+{
+    background-color: #041424;
+    color: #FFFFFF;
+}
+
+.category_list ul li img
+{
+    object-fit: contain;
+    height:20px;
+    width: 20px;
+    margin-right: 16px;
+}
+
+
+.products_list
+{
+    max-width: 98vw;
+    box-sizing: border-box;
+    padding: 0px;
+    overflow: hidden;
+    margin-top: 60px;
+}
+.products_list h1
+{
+    font-size: 40px;
+    font-weight: bolder;
+    margin-left: 100px;
+}
+.products_list p
+{
+    font-size: 18px;
+    margin-left: 100px;
+}

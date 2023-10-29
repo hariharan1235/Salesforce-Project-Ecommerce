@@ -1,0 +1,66 @@
+<!-- sldsValidatorIgnore -->
+<template>
+    <div class="carousel">
+        <div class="carousel__item carousel__item--selected">
+          <img src={Carousel_1_img} />
+          <div class="carousel_product">
+            <h1 class="carousel_product--details product_head--one">
+              New Product
+            </h1>
+            <h1 class="carousel_product--details product_head--two">
+              Flexible Sofa Set
+            </h1>
+            <button class="carousel_product--details product_btn">
+              Shop Now
+            </button>
+          </div>
+        </div>
+        <div class="carousel__item">
+          <img src={Carousel_2_img} />
+          <div class="carousel_product">
+            <h1 class="carousel_product--details product_head--one">
+              New Product
+            </h1>
+            <h1 class="carousel_product--details product_head--two">
+              Wooden Table
+            </h1>
+            <button class="carousel_product--details product_btn">
+              Shop Now
+            </button>
+          </div>
+        </div>
+        <div class="carousel__item">
+          <img src={Carousel_3_img} />
+          <div class="carousel_product">
+            <h1 class="carousel_product--details product_head--one">
+              New Product
+            </h1>
+            <h1 class="carousel_product--details product_head--two">
+              Coffee Table
+            </h1>
+            <button class="carousel_product--details product_btn">
+              Shop Now
+            </button>
+          </div>
+        </div>
+        <div class="carousel__nav">
+          <span class="carousel__dot carousel__dot--selected"></span>
+          <span class="carousel__dot"></span>
+          <span class="carousel__dot"></span>
+        </div>
+        <button
+          onclick={GoPrevSlide}
+          class="carousel--arrow_btn carousel--prev_btn"
+        >
+          &#8656;
+        </button>
+        <button
+          onclick={GoNextSlide}
+          class="carousel--arrow_btn carousel--next_btn"
+        >
+          &#8658;
+        </button>
+      </div>
+
+
+</template>

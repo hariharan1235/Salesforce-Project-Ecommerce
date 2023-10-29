@@ -1,0 +1,53 @@
+<!-- sldsValidatorIgnore -->
+<!-- sldsValidatorIgnore -->
+<template>
+    <div class="main">
+        <div class="Delivery_details">
+          <h1>Delivery Address</h1>
+          
+        
+          <p>
+            <span class="bold_font">Full Name : </span>{Order_details.Name}
+          </p>
+          <p>
+            <span class="bold_font">Address : </span>{Order_details.Ship_Address}
+          </p>
+          <p>
+            <span class="bold_font">Phone Number : </span>{Order_details.Ship_Contact}
+          </p>
+          <p>
+            <span class="bold_font">Order status : </span>{Order_details.Order_status}
+          </p>
+          <p>
+            <span class="bold_font">Payment status : </span>Paid
+          </p>
+  
+          <button class={Order_details.Order_status} onclick={CancelOrder} >Cancel Order</button>
+        </div>
+        <div class="Order_items">
+          <h1>Ordered products</h1>
+          <table>
+            <tbody>
+              <template for:each={Order_details.OrderItems} for:item="product">
+                  <tr key={product.ProductName}>
+                    <td> <lightning-formatted-rich-text value={product.ProductIcon}></lightning-formatted-rich-text> <span class="Quantity">{product.Quantity}</span></td>
+                    <td>{product.ProductName}</td>
+                    <td>${product.Total}.00</td>
+                  </tr>
+              </template>
+              <tr style="font-weight: bolder;">
+                <td></td>
+                <td>Total</td>
+                <td>${Order_details.Order_Total}.00</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <template if:true={Isloading}>
+        <div class="loading">
+            <lightning-spinner variant="brand" alternative-text="Loading" size="medium"></lightning-spinner>
+        </div>
+    </template>
+</template>

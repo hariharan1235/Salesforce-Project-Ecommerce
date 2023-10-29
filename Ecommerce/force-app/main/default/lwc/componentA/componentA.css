@@ -1,0 +1,53 @@
+.payment_status
+{
+    display: none;
+    position: fixed;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%) scale(0.5);
+    background-color: #ffffff;
+    padding: 30px 60px;
+    text-align: center;
+    font-size: 30px;
+    z-index: 1000;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.payment_status h1
+{
+   
+    font-size: 0.7em;
+    margin-block: 15px;
+    font-weight: bolder;
+}
+.payment_status p
+{
+   
+    font-size: 0.5em;
+    margin-block: 15px;
+}
+
+.payment_status button
+{
+    background-color: #2e844a; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: bolder;
+}
+
+.active_payment_status{
+    display: block;
+    transform: translate(-50%,-50%) scale(1);
+    transition: 300ms;
+}
+
+.payment_status .Failed_btn
+{
+      background-color: red;
+}

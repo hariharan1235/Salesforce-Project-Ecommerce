@@ -1,0 +1,69 @@
+<!-- sldsValidatorIgnore -->
+<!-- sldsValidatorIgnore -->
+<template>
+
+    <div class="navigation">
+        <div class="Logo">
+            <img src={ComapanyLogo}>
+        </div>
+           
+        <div class="search">
+                <input type="text" oninput={HandleSearchInput} placeholder="Search Product" value={searchKey} onkeypress={GoSearchPage} onfocus={HandleInputFocus} onblur={HandleInputBlur} ></input>
+                <lightning-icon class="search-icon" icon-name="utility:search" alternative-text="user" title="user" size='xx-small'></lightning-icon>
+                <template if:true={RelatedListDivVisible}>
+
+                    <div class='related_list'>
+                        <ol>
+                            <template for:each={searchRelatedList} for:item='product'>
+                                <li key={product.Id} onclick={HandleRelatedListClick} data-name={product.Name} >{product.Name}</li>
+                            </template>
+                        </ol>
+                    </div>
+
+                </template>
+               
+        </div>
+        <div class="Account_cart">
+            <lightning-icon class="slds-m-horizontal_medium user_icon" onclick={ToggleUserDropDownMenu} icon-name="utility:user" alternative-text="user" title="user" size='small'></lightning-icon>
+            <lightning-icon class="slds-m-horizontal_medium cart_icon" onclick={GoCartPage} icon-name="utility:cart" alternative-text="my cart" title="my cart" size='small'></lightning-icon>
+            <template if:true={ShowUserDropDownBox}>
+                <div class="user_details_dropDown_box">
+                    <ul>
+                        <li>Profile</li>
+                        <li onclick={GoCartPage}>My Cart</li>
+                        <li onclick={GoOrderPage}>My order</li>
+                    </ul>
+                </div>
+            </template>
+        </div>
+    </div>
+    <div class="bottom_nav">
+        <ul>
+            <li><a onclick={GoHomePage}>Home</a></li>
+            <li class="drop_down"><a onclick={handleDropDownMenu} >Product <lightning-icon icon-name="utility:down" alternative-text="down" title="down" size='xx-small'></lightning-icon></a>
+                <template lwc:if={Show_product_dropdown_menu}>
+                    <ul class="sub_menu">
+                        <li><a data-category="Chair" onclick={GoCategoryPage}>Chair</a></li>
+                        <li><a data-category="Table" onclick={GoCategoryPage}>Table</a></li>
+                        <li><a data-category="Bookshelf" onclick={GoCategoryPage}>Bookshelf</a></li>
+                        <li><a data-category="Nightstand" onclick={GoCategoryPage}>Nightstand</a></li>
+                        <li><a data-category="Sofa" onclick={GoCategoryPage}>Sofa</a></li>
+                        <li><a data-category="Bed" onclick={GoCategoryPage}>Bed</a></li>
+                    </ul>
+                </template>
+            </li>
+            <li><a href="#">New Collection</a></li>
+            <li><a href="#">Shop</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </div>
+
+
+    <template if:true={IsLoading}>
+        <div class="loading">
+            <lightning-spinner alternative-text="Loading" variant="brand" size="medium"></lightning-spinner>
+        </div>
+        
+    </template>
+</template>

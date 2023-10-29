@@ -1,0 +1,85 @@
+h1
+{
+    font-weight: bolder;
+    margin-block: 25px;
+    font-weight: bolder;
+    font-size: 24px;
+    /* text-align: center; */
+    margin-left: 15%;
+}
+
+table {
+    /* border-collapse: separate; */
+    border-collapse: collapse;
+    /* border-spacing: 0 15px; */
+    font-weight: bolder;
+    width: 70%;
+    margin: auto;
+    border: 1px solid #F4F6F6;
+    
+  }
+  table tr
+  {
+    
+    /* box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px; */
+    /* border: 1px solid #F4F6F6; */
+  }
+
+  table td, table th {
+    padding:30px 8px;
+    text-align: center;
+    /* border: 1px solid #F4F6F6; */
+  }
+  
+  /* table tr:nth-child(odd){background-color: #F8F9F9;} */
+
+  table tbody tr:nth-child(even){background-color: #F0F3F4;}
+
+  
+  table th {
+    padding:30px 8px;
+    text-align: center;
+     /* background-color: #F0F3F4; */
+     background-color: #5057E8;
+     color: #FFFFFF;
+    /* color: white;  */
+  }
+
+  .Cancelled
+  {
+      /* background-color:rgb(210, 69, 17); */
+      color: rgb(210, 69, 17);
+      padding: 10px;
+      border-radius: 5px;
+  }
+
+ .Confirmed
+  {
+      /* background-color: ; */
+      color: #34D04C;
+      padding: 10px;
+      border-radius: 5px;
+  }
+
+  .Pending
+  {
+    /* background-color:; */
+    color: rgb(232, 215, 29);
+    padding: 10px;
+    border-radius: 5px;
+  } 
+
+
+  .loading
+{
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

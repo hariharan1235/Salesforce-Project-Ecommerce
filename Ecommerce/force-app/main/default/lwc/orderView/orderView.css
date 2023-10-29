@@ -1,0 +1,139 @@
+
+.main
+{
+    /* background-color: #E5E7E9; */
+    padding-block: 50px;
+    box-sizing: border-box;
+
+    display: flex;
+    justify-content: center;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.Delivery_details
+{
+    background-color: #F7F9F9;
+    border-right: 1px solid #F2F3F4;
+    width: 40%;
+    padding: 10px;
+    box-sizing: border-box;
+    /* box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px; */
+    text-align: center; 
+}
+.Order_items
+{
+    background-color: #F7F9F9;
+    /* border: 1px solid #F2F3F4; */
+    width: 40%;
+    box-sizing: border-box;
+    padding: 10px;
+    /* box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px; */
+}
+
+.Delivery_details h1
+{
+    font-size: 18px;
+    font-weight: bold;
+    margin-block: 10px;
+}
+
+.Delivery_details p
+{
+    margin-block: 10px;
+    text-align: left; 
+}
+
+
+.bold_font
+{
+    font-weight: bolder;
+}
+
+.Order_items h1
+{
+    font-size: 18px;
+    font-weight: bold;
+    margin-block: 10px;
+    text-align: center;
+}
+.Order_items table
+{
+    border-collapse: collapse;
+    width: 100%;
+}
+.Order_items table tr td
+{
+    padding-block: 10px;
+}
+.Order_items table td img
+{
+    width: 100%;
+    height: auto;
+}
+.Order_items table tr td:nth-child(1)
+{
+    width: 20%;
+    /* background-color: rgb(149, 149, 210); */
+    position: relative;
+    text-align: center;
+}
+.Quantity
+{
+    position: absolute;
+    top:0;
+    right: 0;
+    background-color: #0000008F;
+    color: #ffffff;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    padding: 1px;
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center;
+    font-size: 12px;
+    transform: translateX(30%);
+}
+.Order_items table tr td:nth-child(2)
+{
+    /* background-color: aqua; */
+    text-align: center;
+}
+.Order_items table tr td:nth-child(3)
+{
+    /* background-color: rgb(195, 130, 130); */
+    text-align: center;
+}
+
+button
+{
+    background-color: #f44336;
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor:pointer;
+}
+
+.Cancelled
+{
+    cursor: not-allowed;
+}
+
+.loading
+{
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

@@ -1,0 +1,198 @@
+.cart_header
+{
+    padding: 40px;
+}
+.cart_header h1
+{
+    font-size: 26px;
+    margin-bottom: 20px;
+}
+.cart_header img
+{
+    height: 100px;
+    width: 150px;
+    background-color : cornflowerblue;
+    object-fit: fill;
+}
+
+.cart_items
+{
+    padding: 40px;
+}
+.cart_items table
+{
+    border-collapse: collapse;
+    width: 100%;
+    box-sizing: border-box;
+}
+.cart_items table tr
+{
+    border: 1px solid #E5E7E9;
+}
+.cart_items table tr td
+{
+    padding: 10px;
+    width: 15%;
+    text-align: center;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.cart_items table .product_cart_img img
+{
+   height: 100%;
+   width: 100%;
+}
+
+.cart_items .quantity
+{
+    margin:auto;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.cart_items .quantity_box
+{
+    padding:10px 15px;
+    border: 1px solid #E5E7E9;
+}
+.cart_items .quantity_box:nth-child(1)
+{
+    border-right: none;
+}
+.cart_items .quantity_box:nth-child(3)
+{
+    border-left: none;
+}
+.cart_items button
+{
+    margin-block: 20px;
+    background-color: #e14a1c; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.cart_items button:hover
+{
+    background-color: black;
+}
+
+
+
+
+
+
+
+
+
+.checkout
+{
+    display: flex;
+    justify-content: space-between;
+    padding: 40px;
+}
+.instruction_box
+{
+    padding: 10px;
+    width: 45%;
+}
+.instruction_box h1
+{
+    font-size: 22px;
+    margin-block: 20px;
+}
+.instruction_box textarea {
+    width: 100%;
+    height: 150px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #ffffff;
+    font-size: 16px;
+    resize: none;
+  }
+.payment_box
+{
+    width: 50%;
+   
+    padding: 10px;
+}
+
+.payment_box h1
+{
+    font-size: 22px;
+    margin-block: 20px;
+}
+
+.payment_box table
+{
+    border-collapse: collapse;
+    width: 100%;
+    box-sizing: border-box;
+}
+.payment_box table tr td
+{
+    padding:20px 10px;
+    width: 15%;
+    text-align: center;
+    cursor: pointer;
+    border: 1px solid #E5E7E9;
+  
+}
+.payment_box table tr
+{
+    font-weight: bolder;
+}
+
+.payment_box button
+{
+    margin-block: 20px;
+    background-color: #e14a1c; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    width: 100%;
+    cursor: pointer;
+}
+
+.payment_box button:hover
+{
+    background-color: black;
+}
+
+
+
+.loading
+{
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Empty_cart
+{
+    text-align: center;
+}
+.Empty_cart h1
+{
+    font-size: 30px;
+    font-weight: bolder;
+}
